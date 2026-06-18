@@ -1,0 +1,3 @@
+{
+  "_placeholder": "Run `nais init-agent` (or `nais sign` in this dir) to overwrite this file with a signed NAIS 1.0 card. A NAIS card MUST carry a valid signature, so this placeholder is not servable as-is."
+}

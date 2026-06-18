@@ -1,0 +1,13 @@
+{
+  "name": "nais-agent",
+  "version": "1.0.0",
+  "private": true,
+  "description": "{{AGENT_NAME}} — a NAIS-compliant MCP agent for {{DOMAIN}}",
+  "main": "mcp.js",
+  "scripts": {
+    "start": "node mcp.js"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

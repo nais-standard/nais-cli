@@ -1,0 +1,38 @@
+{
+  "name": "@nais-standard/cli",
+  "version": "1.0.0",
+  "description": "CLI to scaffold, sign, and verify NAIS-compliant agents",
+  "bin": {
+    "nais": "bin/nais.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "nais",
+    "agent",
+    "identity",
+    "dns",
+    "mcp",
+    "cli"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nais-standard/nais-cli.git"
+  },
+  "homepage": "https://nais.id/sdks",
+  "bugs": {
+    "url": "https://github.com/nais-standard/nais-cli/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@nais-standard/sdk": "^1.0.0"
+  },
+  "files": [
+    "bin/",
+    "templates/"
+  ]
+}

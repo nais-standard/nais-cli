@@ -1,0 +1,39 @@
+# DNS Records for {{DOMAIN}}
+# Add this TXT record at your DNS provider.
+
+# ─── Required: Agent Discovery ────────────────────────────────────────────────
+#
+# Entry point for all NAIS discovery. Points resolvers at your signed card and
+# publishes the signing-key fingerprint (k=) that anchors trust — clients verify
+# the card's signature against this key, so a web-server compromise alone cannot
+# forge your agent.
+#
+# Record type: TXT
+# Host:        _agent.{{DOMAIN}}
+# Value:
+
+_agent.{{DOMAIN}}  IN  TXT  "v=nais1; manifest=https://{{DOMAIN}}/.well-known/agent.json; k={{KID}}"
+
+# (The k= value is filled in automatically by `nais init-agent` / `nais sign`.)
+
+# ─── Field Reference ──────────────────────────────────────────────────────────
+#
+# v         Protocol version. Always "nais1" for NAIS 1.0.
+# manifest  HTTPS URL to your signed agent.json card.
+# k         Signing-key fingerprint: ed25519:<base64url public key>. Must equal
+#           the card's signature.kid. This is the trust anchor.
+#
+# MCP endpoint, auth, and payment are NOT DNS fields in NAIS 1.0 — they live in
+# the signed card.
+
+# ─── Verification ────────────────────────────────────────────────────────────
+#
+# After publishing, verify the record:
+#
+#   dig +short TXT _agent.{{DOMAIN}}
+#
+# Then resolve + verify end-to-end (DNS record + card signature):
+#
+#   nais verify {{DOMAIN}}
+#
+# (or resolve with any NAIS client, e.g. @nais-standard/mcp)
