@@ -1,6 +1,6 @@
 {
   "name": "@nais-standard/cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI to scaffold, sign, and verify NAIS-compliant agents",
   "bin": {
     "nais": "bin/nais.js"
@@ -29,7 +29,7 @@
     "node": ">=18.0.0"
   },
   "dependencies": {
-    "@nais-standard/sdk": "^1.0.0"
+    "@nais-standard/sdk": "^1.0.1"
   },
   "files": [
     "bin/",

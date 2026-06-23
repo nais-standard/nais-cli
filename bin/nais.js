@@ -363,6 +363,12 @@ async function verifyAgent(argv) {
   console.log(`    manifest:   ${r.manifestUrl}`);
   console.log(`    mcp:        ${r.mcpEndpoint || '-'}`);
   console.log(`    tags:       ${r.tags.length ? r.tags.join(', ') : '-'}`);
+  if (r.linkedAgents && r.linkedAgents.length) {
+    const links = r.linkedAgents
+      .map(l => `${l.domain} (${l.relation}${l.verified ? ', verified' : ''})`)
+      .join(', ');
+    console.log(`    linked:     ${links}  (advisory — verify each independently)`);
+  }
   if (r.payTo.length) console.log(`    payTo:      ${r.payTo.join(', ')}  (trusted — signature verified)`);
   if (r.warnings && r.warnings.length) console.log(`    warnings:   ${r.warnings.join('; ')}`);
   if (r.errors && r.errors.length) console.log(`    errors:     ${r.errors.join('; ')}`);
